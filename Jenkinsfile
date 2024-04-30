@@ -8,7 +8,7 @@ pipeline {
           }
         }
         stage('Build') {
-            steps {
+            script {
             docker.build("${env.COMPONENT_NAME}")
             }
         }
