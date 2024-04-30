@@ -10,7 +10,7 @@ pipeline {
             def image = docker.build(${env.COMPONENT_NAME})
         }
 
-//         stage('Run Pytests') {
+//         stage('Run Pytests') {dfd
 //             steps {
 //                 script {
 //                     docker.image(DOCKER_IMAGE).inside {
