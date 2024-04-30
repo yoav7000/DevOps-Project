@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            def image = docker.build(${env.COMPONENT_NAME})
+            image = docker.build(${env.COMPONENT_NAME})
             }
         }
     }
