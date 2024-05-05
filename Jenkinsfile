@@ -16,12 +16,8 @@ pipeline {
             }
         }
         stage('Push Image') {
-          environment {
-                DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
-            }
           steps{
             script {
-              echo DOCKERHUB_CREDENTIALS
               docker.withRegistry('', 'dockerhub-creds') {
                 dockerImage.push()
               }
