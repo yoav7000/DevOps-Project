@@ -1,5 +1,7 @@
 pipeline {
-
+    environment {
+        image_name = "${env.REPO_USER}/${env.COMPONENT_NAME}"
+    }
     agent any
 
     stages {
@@ -11,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build("${env.COMPONENT_NAME}:${GIT_COMMIT}")
+                    dockerImage = docker.build(image_name + ":${GIT_COMMIT}")
              }
             }
         }
