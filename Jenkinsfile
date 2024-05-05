@@ -22,7 +22,7 @@ pipeline {
           steps{
             script {
               echo DOCKERHUB_CREDENTIALS
-              docker.withRegistry("${env.IMAGE_REPO}", 'dockerhub-creds') {
+              docker.withRegistry('', 'dockerhub-creds') {
                 dockerImage.push()
               }
             }
