@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside{
-                    pytest .
+                    "pytest ."
                     }
                 }
             }
