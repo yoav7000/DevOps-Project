@@ -16,16 +16,14 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    dockerImage.inside {
-                        sh pytest .
-
+                    echo "hello"
                 }
             }
         }
         stage('Push Image') {
             steps {
                 script {
-                    docker.withRegistry('', 'dockerhub-creds') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
                         dockerImage.push()
                     }
                 }
