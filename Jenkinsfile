@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside{
-                    sh ""
+                    sh "echo hello"
                     }
                 }
             }
