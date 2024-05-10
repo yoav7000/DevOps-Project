@@ -16,7 +16,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    echo "hello"
+                    dockerImage.inside{
+                    sh ""
+                    }
                 }
             }
         }
