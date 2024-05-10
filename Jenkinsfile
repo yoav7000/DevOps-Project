@@ -18,7 +18,7 @@ pipeline {
                 script {
                     dockerImage.inside {
                         sh pytest .
-                    }
+
                 }
             }
         }
