@@ -28,7 +28,9 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    docker.image(env.TRIVY_IMAGE)
+                    docker.image(env.TRIVY_IMAGE).inside{
+                    sh 'trivy'
+                    }
                 }
             }
         }
