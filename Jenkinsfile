@@ -24,7 +24,8 @@ pipeline {
         }
         stage('Scan') {
             agent {
-                docker { image 'aquasec/trivy' }
+                docker { image 'aquasec/trivy'
+                         args '-v /var/run/docker.sock:/var/run/docker.sock'}
             }
             steps {
                 script {
