@@ -22,6 +22,16 @@ pipeline {
                 }
             }
         }
+        stage('Scan') {
+            agent {
+                docker { image 'aquasec/trivy' }
+            }
+            steps {
+                script {
+                    sh 'trivy ${dockerImage.name}'
+                }
+            }
+        }
         stage('Push Image') {
             steps {
                 script {
