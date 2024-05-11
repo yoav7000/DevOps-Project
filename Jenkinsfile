@@ -30,6 +30,8 @@ pipeline {
                 script {
                     docker.image(env.TRIVY_IMAGE).withRun("-v /var/run/docker.sock:/var/run/docker.sock"){
                         sh "echo hello"//"trivy image ${dockerImage.id}"
+                        sh "trivy"
+                        sh "echo world"
                     }
                 }
             }
