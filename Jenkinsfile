@@ -28,7 +28,7 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    docker.image(env.TRIVY_IMAGE).inside("-v /var/run/docker.sock:/var/run/docker.sock --entrypoint=trivy"){
+                    docker.image(env.TRIVY_IMAGE).inside("-v /var/run/docker.sock:/var/run/docker.sock --entrypoint='trivy'"){
                         sh "image 14e094ff5ccd"
                     }
                 }
