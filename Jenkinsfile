@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     docker.image(env.TRIVY_IMAGE).withRun("-v /var/run/docker.sock:/var/run/docker.sock"){
-                        image ${dockerImage.id}
+                        "trivy image ${dockerImage.id}"
                     }
                 }
             }
