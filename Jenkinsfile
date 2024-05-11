@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        TRIVY_IMAGE = 'aquasec/trivy'
+    }
     stages {
         stage('Clone repository') {
             steps {
@@ -23,13 +26,11 @@ pipeline {
             }
         }
         stage('Scan') {
-            agent {
-                docker { image 'aquasec/trivy'
-                         args '-v /var/run/docker.sock:/var/run/docker.sock'}
-            }
             steps {
                 script {
-                    sh 'image ${dockerImage.name}'
+                    docker.image(${env.TRIVY_IMAGE}).withRun('-v /var/run/docker.sock:/var/run/docker.sock').inside{
+                        "image trivy"
+                    }
                 }
             }
         }
