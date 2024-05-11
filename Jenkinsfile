@@ -28,7 +28,7 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    docker.image(env.TRIVY_IMAGE).withRun("-v /var/run/docker.sock:/var/run/docker.sock"){
+                    docker.image(env.TRIVY_IMAGE).withRun("-v /var/run/docker.sock:/var/run/docker.sock").inside{
                         sh "echo hello"//"trivy image ${dockerImage.id}"
                         sh "trivy"
                         sh "echo world"
