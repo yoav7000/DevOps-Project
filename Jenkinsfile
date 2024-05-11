@@ -28,7 +28,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh 'trivy ${dockerImage.name}'
+                    sh 'trivy image ${dockerImage.name}'
                 }
             }
         }
