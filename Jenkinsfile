@@ -28,7 +28,9 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    docker.image(env.TRIVY_IMAGE).run("-v /var/run/docker.sock:/var/run/docker.sock --no-progress --severity HIGH,CRITICAL --exit-code 0 123")
+                    docker.image(env.TRIVY_IMAGE).run("-v /var/run/docker.sock:/var/run/docker.sock"){
+                        sh 'trivy image 123'
+                    }
                 }
             }
         }
