@@ -28,7 +28,7 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    sh "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ${env.TRIVY_IMAGE} image ${dockerImage.id} --severity CRITICAL"
+                    sh "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ${env.TRIVY_IMAGE} image ${dockerImage.id} --severity MEDIUM,HIGH,CRITICAL"
                 }
             }
         }
