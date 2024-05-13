@@ -29,9 +29,6 @@ pipeline {
             steps {
                 script {
                     sh 'docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ${env.TRIVY_IMAGE} image 123'
-//                     docker.image(env.TRIVY_IMAGE).withRun("-v /var/run/docker.sock:/var/run/docker.sock", "image 123"){
-//
-//                     }
                 }
             }
         }
