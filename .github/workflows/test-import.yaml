@@ -1,3 +1,7 @@
+name: test import
+
+on: [push]
+
 jobs:
   call-workflow:
     uses: yoav7000/Central-ci-cd/.github/workflows/non-prod-feature-branch-wf.yaml@main
