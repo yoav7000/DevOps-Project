@@ -1,0 +1,8 @@
+jobs:
+  call-workflow-passing-data:
+    uses: yoav7000/Central-ci-cd/non-prod-feature-branch-wf.yaml@main
+    with:
+      app_name: devops-project
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
