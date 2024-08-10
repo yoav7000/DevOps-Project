@@ -1,9 +1,9 @@
-name: test import
+name: testing environments workflow
 
 on: [push]
 
 jobs:
-  call-workflow:
+  testing-environments-workflow:
     uses: yoav7000/Central-ci-cd/.github/workflows/non-prod-feature-branch-wf.yaml@main
     with:
       app_name: devops-project
