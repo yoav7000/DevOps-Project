@@ -8,7 +8,7 @@
 #       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
 name: Non production environments pipeline
-
+on: [push]
 jobs:
   build:
     runs-on: self-hosted
