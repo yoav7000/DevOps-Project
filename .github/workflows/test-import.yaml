@@ -13,6 +13,7 @@ jobs:
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       GITOPS_REPO_TOKEN: ${{ secrets.GITOPS_REPO_TOKEN }}
 
+      
 
 # name: Non production environments pipeline
 # on: [push]
