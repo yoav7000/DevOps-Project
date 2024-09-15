@@ -8,7 +8,7 @@ jobs:
     with:
       app_name: devops-project
       gitops_values_path: environments/dev/values/microservice-devops-values.yaml
-      gitops_repo: ${{ env.GITOPS_REPO }}
+      gitops_repo: ${{ vars.GITOPS_REPO }}
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -18,7 +18,7 @@ jobs:
 
 
 
-      
+
 
 # name: Non production environments pipeline
 # on: [push]
