@@ -15,7 +15,6 @@ jobs:
       GITOPS_REPO_TOKEN: ${{ secrets.GITOPS_REPO_TOKEN }}
     
     
-
 # name: Non production environments pipeline
 # on: [push]
 # jobs:
