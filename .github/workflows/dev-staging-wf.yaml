@@ -1,4 +1,4 @@
-name: testing environments workflow
+name: Dev and Staging CI/CD Workflow
 
 on:
   pull_request:
@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  testing-environments-workflow:
-    uses: yoav7000/Central-ci-cd/.github/workflows/non-prod-feature-branch-wf.yaml@main
+  dev-staging-workflow:
+    uses: yoav7000/Central-ci-cd/.github/workflows/dev-staging-feature-branch-wf.yaml@main
     with:
       app_name: devops-project
       gitops_values_path: environments/{ENV_NAME}/values/microservice-devops-values.yaml
@@ -17,34 +17,3 @@ jobs:
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       GITOPS_REPO_TOKEN: ${{ secrets.GITOPS_REPO_TOKEN }}
     
-    
-
-
-
-      
-# Testing commit sha 12345!!!!
-# name: Non production environments pipeline
-# on: [push]
-# jobs:
-#   build:
-#     runs-on: self-hosted
-#     steps:
-#       # Check out the repository
-#       - name: Checkout code
-#         uses: actions/checkout@v4
-      
-#       - name: Set up Docker Buildx
-#         uses: docker/setup-buildx-action@v3
-      
-#       - name: Login to Docker Hub
-#         uses: docker/login-action@v3
-#         with:
-#           username: ${{ secrets.DOCKERHUB_USERNAME }}
-#           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      
-#       - name: Build and push
-#         uses: docker/build-push-action@v6
-#         with:
-#           push: true
-#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-project:${{ github.sha }}
-      
