@@ -6,4 +6,4 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World", "env": os.environ.items()}
+    return {"message": "Hello World", "env": os.environ.get("ENVIRONMENT")}
